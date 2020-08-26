@@ -10,6 +10,7 @@ LoveStack
   - JUnit
   - Spring Data Rest
   - Spring Boot DevTools
+  - JaCoCo
   
 - DB
   - PostgreSQL
