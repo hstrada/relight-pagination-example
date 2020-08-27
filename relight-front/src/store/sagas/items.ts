@@ -1,15 +1,33 @@
-import { put, takeLatest, call } from "redux-saga/effects";
+import { put, takeLatest, call, select } from "redux-saga/effects";
 
 import * as itemsTypes from "../modules/item/action-types";
+import { getItems } from "../modules/item/selectors";
 
-const URL = "http://localhost:8080/items?page=0&size=5";
+const URL = ({ page }: { page: number }) =>
+  `http://localhost:8080/items?page=${page}&size=5`;
 
-function* fetchItems() {
+function* fetchItems({ refresh }: ReturnType<any>) {
   try {
-    const response = yield call(fetch, URL);
-    const responseBody = yield response.json();
+    const actualPage = yield select(getItems);
 
-    yield put({ type: itemsTypes.ITEMS_FETCH_SUCCEEDED, payload: responseBody });
+    const response = yield call(fetch, URL({ page: actualPage.length }));
+
+    const { ok } = response;
+
+    if (ok) {
+      const responseBody = yield response.json();
+
+      if (responseBody.length > 0) {
+        yield put({
+          type: itemsTypes.ITEMS_FETCH_SUCCEEDED,
+          payload: responseBody,
+        });
+      } else {
+        yield put({ type: itemsTypes.ITEMS_FETCH_FINISHED });
+      }
+    } else {
+      yield put({ type: itemsTypes.ITEMS_FETCH_FAILED });
+    }
   } catch (e) {
     yield put({ type: itemsTypes.ITEMS_FETCH_FAILED });
   }

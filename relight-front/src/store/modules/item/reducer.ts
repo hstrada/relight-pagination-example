@@ -14,10 +14,16 @@ export default (state = initialState, action: any) => {
         status: "loading",
       };
     case itemsTypes.ITEMS_FETCH_SUCCEEDED:
-      console.log(action.payload);
       return {
-        data: action.payload,
+        data: [...state.data, action.payload],
         status: "ok",
+        hasNextPage: true,
+      };
+    case itemsTypes.ITEMS_FETCH_FINISHED:
+      return {
+        ...state,
+        status: "finished",
+        hasNextPage: false,
       };
     case itemsTypes.ITEMS_FETCH_FAILED:
       return {

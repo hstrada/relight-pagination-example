@@ -11,18 +11,20 @@ const App = () => {
 
   const data = useSelector(getItems);
 
-  useEffect(() => {
-    dispatch(loadItems());
-  }, [dispatch]);
+  const loadNextPage = ({ refresh = false }: { refresh?: boolean }) => {
+    dispatch(loadItems({ refresh }));
+  };
 
   return (
     <div className="App">
       hello {status}
       <div>
-        {data.map((element: any) => (
-          <p>{element.description}</p>
+        {data?.flat().map((element: any) => (
+          <p key={element.id}>{element.description}</p>
         ))}
       </div>
+      <button onClick={() => loadNextPage({})}>next</button>
+      <button onClick={() => loadNextPage({ refresh: true })}>refresh</button>
     </div>
   );
 };
