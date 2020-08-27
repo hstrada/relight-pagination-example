@@ -1,6 +1,10 @@
 import * as itemsTypes from "./action-types";
 
-export const loadItems = ({ refresh }: { refresh: boolean }) => ({
-  type: itemsTypes.ITEMS_FETCH_REQUEST,
-  payload: refresh,
-});
+function action(type: any, payload = {}) {
+  return { type, ...payload };
+}
+
+export const items = {
+  request: (refresh: boolean) =>
+    action(itemsTypes.ITEMS_FETCH_REQUEST, { payload: refresh }),
+};
