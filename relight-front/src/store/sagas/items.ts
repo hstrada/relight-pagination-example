@@ -6,9 +6,11 @@ import { getItems } from "../modules/item/selectors";
 const URL = ({ page }: { page: number }) =>
   `http://localhost:8080/items?page=${page}&size=5`;
 
-function* fetchItems({ refresh }: ReturnType<any>) {
+function* fetchItems({ payload }: ReturnType<any>) {
   try {
     const actualPage = yield select(getItems);
+
+    console.log(payload);
 
     const response = yield call(fetch, URL({ page: actualPage.length }));
 
@@ -20,7 +22,7 @@ function* fetchItems({ refresh }: ReturnType<any>) {
       if (responseBody.length > 0) {
         yield put({
           type: itemsTypes.ITEMS_FETCH_SUCCEEDED,
-          payload: responseBody,
+          payload: { data: responseBody, refresh: payload },
         });
       } else {
         yield put({ type: itemsTypes.ITEMS_FETCH_FINISHED });

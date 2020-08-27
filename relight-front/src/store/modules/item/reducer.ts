@@ -12,10 +12,13 @@ export default (state = initialState, action: any) => {
       return {
         ...state,
         status: "loading",
+        data: action.payload ? [] : [...state.data],
       };
     case itemsTypes.ITEMS_FETCH_SUCCEEDED:
       return {
-        data: [...state.data, action.payload],
+        data: action.payload.refresh
+          ? []
+          : [...state.data, action.payload.data],
         status: "ok",
         hasNextPage: true,
       };
