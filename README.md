@@ -1,6 +1,7 @@
 # relight-pagination-example
 
-LoveStack
+- Deploy
+  - Heroku
 
 - Java
   - Spring Boot
@@ -14,4 +15,9 @@ LoveStack
   
 - DB
   - PostgreSQL
+
+- React
+  - Redux-Saga
+  - Styled-Components
   
+- Postman
