@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-function App() {
+import { loadItems } from "./store/modules/item/actions";
+import { getItemsStatus, getItems } from "./store/modules/item/selectors";
+
+const App = () => {
+  const dispatch = useDispatch();
+
+  const { status } = useSelector(getItemsStatus);
+
+  const data = useSelector(getItems);
+
+  const loadNextPage = ({ refresh = false }: { refresh?: boolean }) => {
+    dispatch(loadItems({ refresh }));
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      hello {status}
+      <div>
+        {data?.flat().map((element: any) => (
+          <p key={element.id}>{element.description}</p>
+        ))}
+      </div>
+      <button onClick={() => loadNextPage({})}>next</button>
+      <button onClick={() => loadNextPage({ refresh: true })}>refresh</button>
     </div>
   );
-}
+};
 
 export default App;
