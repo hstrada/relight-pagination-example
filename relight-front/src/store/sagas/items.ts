@@ -3,8 +3,10 @@ import { put, takeLatest, call, select } from "redux-saga/effects";
 import * as itemsTypes from "../modules/item/action-types";
 import { getItems } from "../modules/item/selectors";
 
+import config from "../../config/api";
+
 const URL = ({ page }: { page: number }) =>
-  `http://localhost:8080/items?page=${page}&size=5`;
+  `${config.PROD_URL}/items?page=${page}&size=5`;
 
 function* fetchItems({ payload }: ReturnType<any>) {
   try {
