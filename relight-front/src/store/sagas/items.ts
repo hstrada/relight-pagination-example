@@ -10,8 +10,6 @@ function* fetchItems({ payload }: ReturnType<any>) {
   try {
     const actualPage = yield select(getItems);
 
-    console.log(payload);
-
     const response = yield call(fetch, URL({ page: actualPage.length }));
 
     const { ok } = response;

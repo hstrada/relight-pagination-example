@@ -17,7 +17,7 @@ export default (state = initialState, action: any) => {
     case itemsTypes.ITEMS_FETCH_SUCCEEDED:
       return {
         data: action.payload.refresh
-          ? []
+          ? [action.payload.data]
           : [...state.data, action.payload.data],
         status: "ok",
         hasNextPage: true,
