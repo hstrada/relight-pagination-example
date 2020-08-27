@@ -3,7 +3,8 @@
 - Deploy
   - Heroku
 
-- Java
+- BackEnd
+  - Java
   - Spring Boot
   - Spring MVC
   - Spring Data JPA
@@ -16,7 +17,8 @@
 - DB
   - PostgreSQL
 
-- React
+- FrontEnd
+  - React
   - Redux-Saga
   - Styled-Components
   
