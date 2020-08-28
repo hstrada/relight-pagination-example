@@ -25,7 +25,7 @@
 ---
 ## :rocket: Project Summary
 
-"Relight is a sample project to simulate"
+"Relight is a sample project to simulate paginate example."
 
 ---
 ## 👨‍💻️ Technologies Used
