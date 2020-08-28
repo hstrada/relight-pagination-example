@@ -1,44 +1,102 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+  FrontEnd project to simulate pagination.
+</p>
 
-## Available Scripts
+<p align="center">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/hstrada/relight-pagination-example?color=green">
 
-In the project directory, you can run:
+  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/hstrada/relight-pagination-example?logo=typescript">
 
-### `yarn start`
+  <img alt="GitHub repo size in bytes" src="https://img.shields.io/github/repo-size/hstrada/relight-pagination-example?color=green">
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+  <br>
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+  <img alt="GitHub code size in bytes" src="https://img.shields.io/github/last-commit/hstrada/relight-pagination-example?color=green">
+</p>
 
-### `yarn test`
+ 
+# Index
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- :rocket: [Project Summary](#rocket-project-summary)
+- 👨‍💻️ [Technologies Used](#%EF%B8%8F-technologies-used)
+- 📦️ [How to install the project](#%EF%B8%8F-how-to-install-the-project)
+- 🤔️ [How can you contribute?](#%EF%B8%8F-how-can-you-contribute)
 
-### `yarn build`
+---
+## :rocket: Project Summary
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+"Relight is a sample project to simulate"
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+> This Project was made to [MegaHack 3.0](https://www.megahack.com.br/), to solve the challenge proposed by Árvore Educação company.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+> Release: https://github.com/hstrada/hackathon-galho/releases
 
-### `yarn eject`
+---
+## 👨‍💻️ Technologies Used
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+This project was developed using the technologies bellow:
+  
+### FrontEnd
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  - [React](https://reactjs.org/)
+  
+### Dependencies
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+  - [Typescript](https://www.typescriptlang.org/)
+  - [Styled Components](https://styled-components.com/)
+  - [Redux](https://redux.js.org/)
+  - [Redux-Saga](https://redux-saga.js.org/)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### IDE
 
-## Learn More
+  - [Visual Studio Code](https://code.visualstudio.com/)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
+ 
+## 📦️ How to install the project
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+> [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/) or [NPM](https://www.npmjs.com/) are required
+
+To clone the project, use the commands bellow:
+
+```bash
+  # Clone the repository
+  ❯ git clone https://github.com/hstrada/relight-front.git
+
+  # Enter directory
+  ❯ cd relight-front
+```
+
+### FrontEnd
+
+**Run in Web**
+
+```bash
+  # Enter frontend directory
+  > cd relight-front
+
+  # Install the dependencies
+  ❯ yarn
+
+  # Start the project
+  ❯ yarn start
+
+```
+
+## 🤔️ How can you contribute?
+
+1. `fork` this repository
+2. Create a branch with your feature:
+   - `$ git checkout -b my_feature`
+3. Commit your branch:
+   - `$ git commit -m "feature: My new feature"`
+4. Submit your branch:
+   - `$ git push origin my_feature`
+   
+---
+
+<h4 align="center">
+  Made with 💚 by <a href="https://www.linkedin.com/in/helenastrada/">Helena Strada</a>
+  <br>
+  Hope you liked it
+</h4>
