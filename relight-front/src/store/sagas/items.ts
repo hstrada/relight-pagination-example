@@ -3,10 +3,10 @@ import { put, takeLatest, call, select } from "redux-saga/effects";
 import * as itemsTypes from "../modules/item/action-types";
 import { getItems } from "../modules/item/selectors";
 
-import config from "../../config/api";
+import config from "../../config/api.dev";
 
 const URL = ({ page }: { page: number }) =>
-  `${config.DEV_URL}/items?page=${page}&size=5`;
+  `${config.BASE_URL}/items?page=${page}&size=5`;
 
 function* fetchItems({ payload }: ReturnType<any>) {
   try {
@@ -35,8 +35,9 @@ function* fetchItems({ payload }: ReturnType<any>) {
   }
 }
 
-const saga = function* (): Generator {
+const items = function* (): Generator {
+  // only get the response of the latest request fired
   yield takeLatest(itemsTypes.ITEMS_FETCH_REQUEST, fetchItems);
 };
 
-export default saga;
+export default items;
