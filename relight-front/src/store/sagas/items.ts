@@ -6,7 +6,7 @@ import { getItems } from "../modules/item/selectors";
 import config from "../../config/api";
 
 const URL = ({ page }: { page: number }) =>
-  `${config.PROD_URL}/items?page=${page}&size=5`;
+  `${config.DEV_URL}/items?page=${page}&size=5`;
 
 function* fetchItems({ payload }: ReturnType<any>) {
   try {

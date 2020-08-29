@@ -1,5 +1,7 @@
-export const getItems = (state: any) => state.items.data || [];
+import { ReduxInterface } from "../../../interfaces";
 
-export const getItemsStatus = (state: any) => ({
+export const getItems = (state: ReduxInterface) => state.items.data || [];
+
+export const getItemsStatus = (state: ReduxInterface) => ({
   status: state.items.status || "",
 });

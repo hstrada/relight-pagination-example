@@ -1,8 +1,10 @@
 import * as itemsTypes from "./action-types";
 
-const initialState = {
+import { ItemState, StatusRequest } from "../../../interfaces";
+
+const initialState: ItemState = {
   data: [],
-  status: "",
+  status: StatusRequest.OK,
   hasNextPage: true,
 };
 
@@ -11,7 +13,7 @@ export default (state = initialState, action: any) => {
     case itemsTypes.ITEMS_FETCH_REQUEST:
       return {
         ...state,
-        status: "loading",
+        status: StatusRequest.LOADING,
         data: action.payload ? [] : [...state.data],
       };
     case itemsTypes.ITEMS_FETCH_SUCCEEDED:
@@ -19,19 +21,19 @@ export default (state = initialState, action: any) => {
         data: action.payload.refresh
           ? [action.payload.data]
           : [...state.data, action.payload.data],
-        status: "ok",
+        status: StatusRequest.OK,
         hasNextPage: true,
       };
     case itemsTypes.ITEMS_FETCH_FINISHED:
       return {
         ...state,
-        status: "finished",
+        status: StatusRequest.FINISHED,
         hasNextPage: false,
       };
     case itemsTypes.ITEMS_FETCH_FAILED:
       return {
         ...state,
-        status: "failed",
+        status: StatusRequest.FINISHED,
       };
 
     default:
